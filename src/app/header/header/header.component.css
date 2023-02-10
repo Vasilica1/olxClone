@@ -1,0 +1,51 @@
+.header {
+  background: #002f34;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 60px;
+  position: fixed;
+  transition: transform 0.5s cubic-bezier(0.8, 0.2, 0.2, 0.8);
+  display: flex;
+  justify-content: center;
+}
+
+.centerheader {
+  width: 1160px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  color: white;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(167, 160, 160);
+}
+
+.letterO {
+  color: #24e5db;
+  font-weight: 900;
+}
+
+.letterl {
+  color: #24e5db;
+  font-size:larger;
+} 
+
+.letterX {
+  color: #24e5db;
+}
+
+.button1 {
+  cursor: pointer;
+  background-color: white;
+  color: #000;
+}

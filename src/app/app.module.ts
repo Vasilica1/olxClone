@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import {InputTextModule} from 'primeng/inputtext';
 import { AppComponent } from './app.component';
 import { CardAdComponent } from './components/card-ad/card-ad.component';
+import { HeaderComponent } from './header/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardAdComponent
+    CardAdComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
