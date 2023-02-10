@@ -8,12 +8,18 @@ import {InputTextModule} from 'primeng/inputtext';
 import { AppComponent } from './app.component';
 import { CardAdComponent } from './components/card-ad/card-ad.component';
 import { HeaderComponent } from './header/header/header.component';
+import { AnswersComponent } from './components/answers/answers.component';
+import { SavedAdsComponent } from './components/saved-ads/saved-ads.component';
+import { AddAdsComponent } from './components/add-ads/add-ads.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardAdComponent,
-    HeaderComponent
+    HeaderComponent,
+    AnswersComponent,
+    SavedAdsComponent,
+    AddAdsComponent
   ],
   imports: [
     BrowserModule,
