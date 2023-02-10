@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1> Anunturi promovate </h1>
+    <ul class="unorder-list display-flex-li" *ngFor="let data1 of data">
+      <li class="display-flex">
+        <a href="#">
+          <div class="card-img" style="background-image:url({{data1.image}})"></div>
+        </a>
+        <i class="fa fa-light fa-truck"></i>
+        <a href="#">
+          <p class="description cut-text">{{data1.description}}</p>
+        </a>
+        <p class="date-location">{{data1.location}}</p>
+        <p class="price">{{ data1.price }}</p>
+        <!-- <a href="https://www.flaticon.com/free-icons/heart" title="heart icons">Heart icons created by Freepik - Flaticon</a> -->
+      </li>
+    </ul>
+  </div>
+</div>
