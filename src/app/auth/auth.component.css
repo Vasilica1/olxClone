@@ -58,3 +58,22 @@ input[type=text], input[type=password] {
   background-color: #fff;
 }
 
+.btn {
+  width: 50%;
+  padding: 20px 0px;
+  background-color: #fff;
+  border-bottom: 1px solid #000;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  font-weight: 700;
+  border-bottom: 3px solid #000;
+}
+
+.buttonsSwitch {
+  display: flex;
+}

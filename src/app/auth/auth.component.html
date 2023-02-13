@@ -1,15 +1,31 @@
 <div class="box">
   <div class="login">
-    
-    <form >
-      <div class="containerLogin">
+    <div class="buttonsSwitch">
+      <button class="btn" type="button" (click)="swithTologIn()">Intra in cont</button>
+      <button class="btn" type="button" (click)="switchToCreateAccount()">Creeaza un cont</button>
+    </div>
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+      <div class="containerLogin" >
         <label for="uname" class="css-label">Adresa ta de email</label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-    
+        <input 
+          type="text" 
+          placeholder="Enter Username" 
+          name="uname" 
+          ngModel
+          required
+          email
+        >
         <label for="psw" class="css-label">Parola</label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-    
-        <input class="btn-submit" type="button" value="Intra in cont">
+        <input 
+          type="password" 
+          placeholder="Enter Password" 
+          name="psw" 
+          ngModel
+          required
+          minlength="6"
+        >
+        <button class="btn-submit" type="submit" [disabled]="!authForm.valid">{{ isLogIn ? 'Intra in cont': 'Creeaza un cont'}}</button>
+        <!-- <input class="btn-submit" type="submit" [value]="textChange"> -->
       </div>
     </form>
   </div>
