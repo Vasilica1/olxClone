@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from './auth/auth.component';
 import { AddAdsComponent } from './components/add-ads/add-ads.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { CardAdComponent } from './components/card-ad/card-ad.component';
@@ -9,7 +10,8 @@ const routes: Routes = [
   { path: '', component: CardAdComponent },
   { path: 'answers', component: AnswersComponent },
   { path: 'add-ads', component: AddAdsComponent },
-  { path: 'saved-ads', component: SavedAdsComponent }
+  { path: 'saved-ads', component: SavedAdsComponent },
+  { path: 'auth', component: AuthComponent}
 ];
 
 @NgModule({

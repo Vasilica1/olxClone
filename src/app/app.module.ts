@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header/header.component';
 import { AnswersComponent } from './components/answers/answers.component';
 import { SavedAdsComponent } from './components/saved-ads/saved-ads.component';
 import { AddAdsComponent } from './components/add-ads/add-ads.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AddAdsComponent } from './components/add-ads/add-ads.component';
     HeaderComponent,
     AnswersComponent,
     SavedAdsComponent,
-    AddAdsComponent
+    AddAdsComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
