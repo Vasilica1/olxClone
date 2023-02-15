@@ -48,7 +48,6 @@
         placeholder="Încearcă să scrii ce ai vrea tu să afli dacă te-ai uita la acest anunț"
         ngModel
         required
-        minlength="80"
         #description="ngModel"></textarea>
       <p class="help-block" *ngIf="!description.valid && description.touched">80 este numarul minim de caractere. Ofera informatii cat mai detaliate si mentioneaza daunele existente</p>
       <div class="text">
@@ -94,4 +93,9 @@
         [ngStyle]="{'background-color': f.valid ? 'rgb(0, 47, 52)': 'rgb(24, 109, 119)'}" >Publica un anunt</button>
     </div>
   </form>
+  <!-- <div class="showDetails" *ngFor="let information of informationAd">
+    <p>Title: {{ information.title }}</p>
+    <p>Description: {{ information.description }}</p>
+    <p>Category:  {{ information.category }}</p>
+  </div> -->
 </div>
