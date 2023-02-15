@@ -1,6 +1,6 @@
 <div class="containerAddAd">
   <h1>Publică un anunț</h1>
-  <form>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
     <div class="details">
       <h3>Dă cat mai multe detalii!</h3>
       <label for="title">Adauga titlul*</label>
@@ -8,10 +8,17 @@
         type="text" 
         id="title" 
         name="title"
-        placeholder="ex: Iphone 11, inca in garantie..">
-
+        placeholder="ex: Iphone 11, inca in garantie.."
+        [(ngModel)]="title1"
+        required
+        #title="ngModel">
+      <p class="help-block" *ngIf="!title.valid && title.touched">Titlul e cel mai important, nu uita de el </p>
       <label for="category">Categoria*</label>
-      <select id="category">
+      <select 
+        id="category"
+        ngModel
+        name="category"
+        required>
         <option value="auto">Auto, moto si ambarcatiuni</option>
         <option value="imobiliare">Imobiliare</option>
         <option value="elect">Electrice si electrocasnice</option>
@@ -22,7 +29,14 @@
       <p>Aceasta va fi imaginea principală a anunțului tău. Glisează și fixează imaginile în ordinea dorită.</p>
       <div class="images">
         <button type="button" class="css-images-button">Adauga imagini</button>
-        <input type="file" accept=".png, .jpg, .jpeg" multiple name="file" class="css-inputFile">
+        <input 
+          type="file" 
+          accept=".png, .jpg, .jpeg" 
+          multiple 
+          name="file" 
+          class="css-inputFile"
+          ngModel
+          required>
       </div>
     </div>
     <div class="details mt description">
@@ -31,7 +45,12 @@
         name="description" 
         rows="11" 
         autocomplete="off" 
-        placeholder="Încearcă să scrii ce ai vrea tu să afli dacă te-ai uita la acest anunț"></textarea>
+        placeholder="Încearcă să scrii ce ai vrea tu să afli dacă te-ai uita la acest anunț"
+        ngModel
+        required
+        minlength="80"
+        #description="ngModel"></textarea>
+      <p class="help-block" *ngIf="!description.valid && description.touched">80 este numarul minim de caractere. Ofera informatii cat mai detaliate si mentioneaza daunele existente</p>
       <div class="text">
         <p>Scrie cel puțin încă 80 caractere</p>
         <p>0/9000</p>
@@ -42,7 +61,13 @@
       <input 
         type="text" 
         id="location" 
-        name="location">
+        name="location"
+        ngModel
+        required
+        #location="ngModel"
+        >
+    <p class="help-block" *ngIf="!location.valid && location.touched">Locație invalidă</p>
+    <p class="aditional-information"></p>
     </div>
     <div class="details mt">
       <h3>Informatii de contact</h3>
@@ -50,16 +75,23 @@
       <input 
         type="email" 
         id="emial" 
-        name="email">
+        name="email"
+        [ngModel]="myEmail"
+        disabled
+        email>
       <label for="numberTel">Numarul de telefon</label>
       <input 
         type="number" 
         id="numberTel" 
-        name="numberTel">
+        name="numberTel"
+        [ngModel]="myTelephoneNumber">
     </div>
     <div class="details mt">
-      <button class="btn-submit" type="submit" >Publica un anunt</button>
+      <button 
+        class="btn-submit" 
+        type="submit"
+        [disabled]="!f.valid"
+        [ngStyle]="{'background-color': f.valid ? 'rgb(0, 47, 52)': 'rgb(24, 109, 119)'}" >Publica un anunt</button>
     </div>
   </form>
-  
 </div>

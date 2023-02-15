@@ -102,3 +102,11 @@ textarea {
   font-size: 18px;
   border-radius: 5px;
 }
+
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+  border-bottom: 3px solid red;
+}
+
+.help-block {
+  color: red;
+}
