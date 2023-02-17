@@ -52,7 +52,7 @@ select {
   left: 0px;
   top: 0px;
   cursor: pointer;
-  /* opacity: 0; */
+  opacity: 0;
 }
 
 .css-images-button {
@@ -64,11 +64,12 @@ select {
   text-decoration: none;
   color: rgb(0, 47, 52);
   padding: 0px;
-  position: relative;
+  position: absolute;
   font-size: 16px;
   min-height: 40px;
   font-weight: 700;
   background-color: transparent;
+  z-index: 3;
 }
 
 textarea {
@@ -109,4 +110,8 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.n
 
 .help-block {
   color: red;
+}
+
+.imageAddByUser {
+  object-fit:cover;
 }

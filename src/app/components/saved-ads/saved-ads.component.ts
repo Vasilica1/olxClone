@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PostsService } from 'src/app/shared/posts.service';
 
 @Component({
   selector: 'app-saved-ads',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./saved-ads.component.css']
 })
 export class SavedAdsComponent {
-
+  
 }

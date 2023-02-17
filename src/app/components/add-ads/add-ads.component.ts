@@ -1,29 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { map } from 'rxjs';
 import { AdDetails } from 'src/app/shared/ad-details.model';
+import { PostsService } from 'src/app/shared/posts.service';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-add-ads',
   templateUrl: './add-ads.component.html',
   styleUrls: ['./add-ads.component.css']
 })
-export class AddAdsComponent implements OnInit {
+export class AddAdsComponent  {
+  
   @ViewChild('f')
   formAd!: NgForm;
   myEmail: string = "vasilica.cernovschi@student.usv.ro";
-  myTelephoneNumber: string = "0748898178";
   title1: string = '';
+  myTelephoneNumber: string = "0748898178";
   informationAd!: AdDetails;
   subbmited: boolean = false;
-  img: string = '';
+  selectedFile!: string;
+  imgSrc: string = '../../../assets/v996-009_1-kroir4dk.jpg';
+  imageWasChanged: boolean = true;
 
-  ngOnInit() {
-    this.fetchPosts();
+  constructor(private postService: PostsService, private http: HttpClient, private af: AngularFireStorage) {}
+
+  onFileSelected(event: any) {
+    const reader = new FileReader();
+    reader.onload = (e:any) => this.imgSrc = e.target.result;
+    reader.readAsDataURL(event.target.files[0]);
+    this.selectedFile = event.target.files[0];
+    this.imageWasChanged = false;
   }
-
-  constructor(private http: HttpClient) {}
 
   onSubmit() {
     this.informationAd = {
@@ -38,36 +46,7 @@ export class AddAdsComponent implements OnInit {
       }
     }
     this.subbmited = true;
-
-    // this.formAd.form.patchValue({
-    //   title: '',
-    //   category: '',
-    //   file: '',
-    //   description: '',
-    //   location: ''
-    // })
-    
-    this.http.post<AdDetails>(
-      'https://olxclone-610fc-default-rtdb.firebaseio.com/posts.json', 
-      this.informationAd
-    ).subscribe(responseData => {
-      console.log(responseData);
-    })
-  }
-
-  fetchPosts() {
-  this.http.get<AdDetails>('https://olxclone-610fc-default-rtdb.firebaseio.com/posts.json')
-      .pipe(map(responesData => {
-        const postsArray = [];
-        for(const key in responesData) {
-          if(responesData.hasOwnProperty(key)) {
-            postsArray.push({ ...responesData[key], id: key});
-          }
-        }
-        return postsArray;
-      }))
-      .subscribe(posts => {
-        console.log(posts);
-      });
+    this.postService.createAndStoreAds(this.informationAd);
+    this.af.upload("/files" + Math.random()+this.selectedFile, this.selectedFile);
   }
 }

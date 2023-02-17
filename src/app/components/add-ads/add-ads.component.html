@@ -28,7 +28,7 @@
       <h3>Imagini</h3>
       <p>Aceasta va fi imaginea principală a anunțului tău. Glisează și fixează imaginile în ordinea dorită.</p>
       <div class="images">
-        <button type="button" class="css-images-button">Adauga imagini</button>
+        <button *ngIf="imageWasChanged" type="button" class="css-images-button" (click)="fileInput.click()">Adauga imagini</button>
         <input 
           type="file" 
           accept=".png, .jpg, .jpeg" 
@@ -36,7 +36,11 @@
           name="file" 
           class="css-inputFile"
           ngModel
-          required>
+          required
+          (change)="onFileSelected($event)"
+          #fileInput
+          >
+        <img class="imageAddByUser" [src]="imgSrc" alt="iphone" width="150px" height="150px">
       </div>
     </div>
     <div class="details mt description">
@@ -93,9 +97,4 @@
         [ngStyle]="{'background-color': f.valid ? 'rgb(0, 47, 52)': 'rgb(24, 109, 119)'}" >Publica un anunt</button>
     </div>
   </form>
-  <!-- <div class="showDetails" *ngFor="let information of informationAd">
-    <p>Title: {{ information.title }}</p>
-    <p>Description: {{ information.description }}</p>
-    <p>Category:  {{ information.category }}</p>
-  </div> -->
 </div>
