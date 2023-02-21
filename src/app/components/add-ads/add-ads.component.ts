@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AdDetails } from 'src/app/shared/ad-details.model';
-import { PostsService } from 'src/app/shared/posts.service';
+import { PostsService } from 'src/app/shared/services/postsService/posts.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
@@ -10,6 +10,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
   templateUrl: './add-ads.component.html',
   styleUrls: ['./add-ads.component.css']
 })
+
 export class AddAdsComponent  {
   
   @ViewChild('f')

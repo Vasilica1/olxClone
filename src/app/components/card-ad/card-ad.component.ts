@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AdDetails } from 'src/app/shared/ad-details.model';
-import { PostsService } from 'src/app/shared/posts.service';
+import { PostsService } from 'src/app/shared/services/postsService/posts.service';
 
 @Component({
   selector: 'app-card-ad',

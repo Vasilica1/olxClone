@@ -7,7 +7,6 @@ export interface AdDetails {
     location: string,
     emailAdreess?: string,
     telephoneNumber?: string
-    
   }
 }
   

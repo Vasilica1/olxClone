@@ -7,6 +7,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { ReactiveFormsModule } from '@angular/forms';
+import { GalleriaModule } from 'primeng/galleria';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,9 @@ import { AnswersComponent } from './components/answers/answers.component';
 import { SavedAdsComponent } from './components/saved-ads/saved-ads.component';
 import { AddAdsComponent } from './components/add-ads/add-ads.component';
 import { AuthComponent } from './auth/auth.component';
+import { CardComponent } from './components/card-ad/card/card.component';
+import { GalleriaComponent } from './components/card-ad/card/galleria/galleria.component';
+
 
 @NgModule({
   declarations: [
@@ -27,10 +31,13 @@ import { AuthComponent } from './auth/auth.component';
     AnswersComponent,
     SavedAdsComponent,
     AddAdsComponent,
-    AuthComponent
+    AuthComponent,
+    CardComponent,
+    GalleriaComponent
   ],
   imports: [
     BrowserModule,
+    GalleriaModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     InputTextModule,
