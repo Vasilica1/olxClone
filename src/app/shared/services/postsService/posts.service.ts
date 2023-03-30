@@ -12,24 +12,15 @@ export class PostsService {
 
   createAndStoreAds( details: AdDetails) {
     const informationAd = details;
-    this.http.post<AdDetails>(
-      'https://olxclone-610fc-default-rtdb.firebaseio.com/posts.json', 
+    this.http.post<{message: string}>(
+      'http://localhost:3000/api/posts', 
       informationAd
     ).subscribe(responseData => {
-      console.log(responseData);
+      console.log(responseData.message);
     })
   }
 
-  fetchPosts(): Observable<any> {
-    return this.http.get<AdDetails>('https://olxclone-610fc-default-rtdb.firebaseio.com/posts.json')
-      .pipe(map(responesData => {
-        const postsArray = [];
-        for(const key in responesData) {
-          if(responesData.hasOwnProperty(key)) {
-            postsArray.push({ ...responesData[key], id: key});
-          }
-        }
-        return postsArray;
-      }))
+  fetchPosts(): Observable<{message: string, posts: any}> {
+    return this.http.get<{message: string, posts: any}>('http://localhost:3000/api/posts');
   }
 }

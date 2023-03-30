@@ -36,7 +36,7 @@ export class AddAdsComponent  {
 
   onSubmit() {
     this.informationAd = {
-      "ad-1": {
+        // id: "123",
         title: this.formAd.value.title,
         category: this.formAd.value.category,
         image: this.formAd.value.file,
@@ -44,10 +44,9 @@ export class AddAdsComponent  {
         location: this.formAd.value.location,
         emailAdreess: this.myEmail,
         telephoneNumber: this.formAd.value.numberTel
-      }
     }
     this.subbmited = true;
     this.postService.createAndStoreAds(this.informationAd);
-    this.af.upload("/files" + Math.random()+this.selectedFile, this.selectedFile);
+    // this.af.upload("/files" + Math.random()+this.selectedFile, this.selectedFile);
   }
 }
